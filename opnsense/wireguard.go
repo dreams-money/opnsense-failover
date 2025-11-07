@@ -1,21 +1,11 @@
 package opnsense
 
 import (
-	"encoding/base64"
 	"errors"
 	"strings"
 
 	"github.com/dreams-money/opnsense-failover/config"
 )
-
-var Authorization string
-
-func SetAuthorization(key, secret string) {
-	auth := key + ":" + secret
-	auth = base64.StdEncoding.EncodeToString([]byte(auth))
-
-	Authorization = "Basic " + auth
-}
 
 func removeVIPFromWireguardPeer(peerID string, cfg config.Config) error {
 	peer, err := getWireguardPeer(peerID, cfg)
