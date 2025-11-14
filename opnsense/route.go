@@ -72,7 +72,7 @@ func getRoute(uuid string, cfg config.Config) (Route, error) {
 		}
 	}
 
-	return route, fmt.Errorf("routes get, api response: requested route not found")
+	return route, fmt.Errorf("routes get, api response: requested route not found, %v", uuid)
 }
 
 func editRoute(route Route, cfg config.Config) error {

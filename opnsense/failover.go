@@ -30,6 +30,12 @@ func Failover(cfg config.Config) error {
 	}
 	log.Println("Successfully reconfigured routes")
 
+	err = setWireguardService(cfg)
+	if err != nil {
+		return err
+	}
+	log.Println("Successfully set wireguard updates")
+
 	err = reconfigureWireguardService(cfg)
 	if err != nil {
 		return err
